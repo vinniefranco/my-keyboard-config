@@ -4,13 +4,15 @@ manifest:
       url-base: https://github.com/Good-Great-Grand-Wonderful
     - name: badjeff
       url-base: https://github.com/badjeff
+    - name: efogdev
+      url-base: https://github.com/efogdev
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: gggw/crosses
       import: app/west.yml
     - name: zmk-pmw3610-driver
-      remote: badjeff
+      remote: efogdev
       revision: main
     - name: zmk-input-processor-report-rate-limit
       remote: badjeff
