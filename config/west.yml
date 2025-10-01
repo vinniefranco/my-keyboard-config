@@ -15,7 +15,7 @@ manifest:
       remote: efogdev
       revision: main
     - name: zmk-input-processor-report-rate-limit
-      remote: badjeff
+      remote: efogdev
       revision: main
   self:
     path: config
