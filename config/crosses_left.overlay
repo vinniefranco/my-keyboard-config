@@ -1,10 +1,6 @@
 &trackball_peripheral_split {
     device = <&trackball_peripheral>;
 
-    /* Base: discard movement (applies when no override matches — 
-       but layer 0 is always active, so this only matters as fallback) */
-    input-processors = <&zip_xy_scaler 0 1>, <&zip_ble_report_rate_limit>;
-
     /* Layer 1: scroll mode */
     scrolling {
         layers = <1>;
