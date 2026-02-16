@@ -1,7 +1,12 @@
 &trackball_peripheral_split {
   device = <&trackball_peripheral>;
-  input-processors
-    = <&zip_xy_to_scroll_mapper>
-    , <&zip_scroll_scaler 1 3>
-    , <&zip_ble_report_rate_limit>;
+  input-processors = <&zip_ble_report_rate_limit>;
+
+  scrolling {
+      layers = <1>;
+      input-processors 
+        = <&zip_xy_to_scroll_mapper>
+        , <&zip_scroll_scaler 1 4>
+        , <&zip_ble_report_rate_limit>;
+  };
 };
