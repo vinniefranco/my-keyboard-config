@@ -1,12 +1,22 @@
 &trackball_peripheral_split {
-  device = <&trackball_peripheral>;
-  input-processors = <&zip_ble_report_rate_limit>;
+    device = <&trackball_peripheral>;
 
-  scrolling {
-      layers = <1>;
-      input-processors 
-        = <&zip_xy_to_scroll_mapper>
-        , <&zip_scroll_scaler 1 4>
-        , <&zip_ble_report_rate_limit>;
-  };
+    /* Base: discard movement (applies when no override matches — 
+       but layer 0 is always active, so this only matters as fallback) */
+    input-processors = <&zip_xy_scaler 0 1>, <&zip_ble_report_rate_limit>;
+
+    /* Layer 1: scroll mode */
+    scrolling {
+        layers = <1>;
+        input-processors
+            = <&zip_xy_to_scroll_mapper>
+            , <&zip_scroll_scaler 1 4>
+            , <&zip_ble_report_rate_limit>;
+    };
+
+    /* Layers where you WANT mouse — list them explicitly */
+    mouse_mode {
+        layers = <0 2 3 4 5 6>;
+        input-processors = <&zip_ble_report_rate_limit>;
+    };
 };
