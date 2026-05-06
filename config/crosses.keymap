@@ -10,25 +10,6 @@
     };
 
     behaviors {
-#if defined(CONFIG_ZMK_SPLIT_ROLE_CENTRAL)
-        // Behaviour to cycle through DPI values on a keypress
-        dpi_cycle: sensor_dpi_cycle {
-            compatible = "zmk,behavior-sensor-attr-cycle";
-            #binding-cells = <1>;
-            values = <100 300 600 900 1200>;
-            attr = <0>;
-            sensor_device = <&trackball_central>;
-            display-name = "DPI cycle";
-            persistant;
-        };
-#else
-        // Stub on peripheral so &dpi_cycle(1) resolves; trackball_central only exists on central.
-        dpi_cycle: dpi_cycle_stub {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings = <&none>;
-        };
-#endif
         hml: hml {
             compatible = "zmk,behavior-hold-tap";
             label = "HML";
@@ -211,7 +192,7 @@
         nav {
             display-name = "Nav";
             bindings = <
-&none     &none     &none      &none       &none        &none  &none           &none           &none          &dpi_cycle(1)
+&none     &none     &none      &none       &none        &none  &none           &none           &none          &none
 &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT   &none        &none  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW   &kp RIGHT_ARROW
 &none     &none     &none      &kp K_COPY  &kp K_PASTE  &none  &kp C_AC_HOME   &kp END         &kp PAGE_DOWN  &kp PAGE_UP
                     &none      &none       &none        &none  &none           &none
