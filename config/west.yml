@@ -6,6 +6,8 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: Good-Great-Grand-Wonderful
       url-base: https://github.com/Good-Great-Grand-Wonderful
+    - name: george-norton
+      url-base: https://github.com/george-norton
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -13,7 +15,10 @@ manifest:
       import: app/west.yml
     - name: gggw-zmk-keebs
       remote: Good-Great-Grand-Wonderful
-      revision: switch-driver
+      revision: zephyr-4.1
       import: config/west.yml
+    - name: zmk-behavior-sensor-attr-cycle
+      remote: george-norton
+      revision: v0.2
   self:
     path: config
