@@ -10,6 +10,7 @@
     };
 
     behaviors {
+#if defined(CONFIG_ZMK_SPLIT_ROLE_CENTRAL)
         // Behaviour to cycle through DPI values on a keypress
         dpi_cycle: sensor_dpi_cycle {
             compatible = "zmk,behavior-sensor-attr-cycle";
@@ -20,6 +21,14 @@
             display-name = "DPI cycle";
             persistant;
         };
+#else
+        // Stub on peripheral so &dpi_cycle(1) resolves; trackball_central only exists on central.
+        dpi_cycle: dpi_cycle_stub {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings = <&none>;
+        };
+#endif
         hml: hml {
             compatible = "zmk,behavior-hold-tap";
             label = "HML";
