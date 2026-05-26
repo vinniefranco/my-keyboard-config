@@ -6,14 +6,25 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: Good-Great-Grand-Wonderful
       url-base: https://github.com/Good-Great-Grand-Wonderful
+    - name: efogdev
+      url-base: https://github.com/efogdev
+    - name: sekigon-gonnoc
+      url-base: https://github.com/sekigon-gonnoc
+    - name: badjeff
+      url-base: https://github.com/badjeff
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: ac7f75b8591d39aaf3b66b9d26f26c9ed921a009
       import: app/west.yml
-    - name: gggw-zmk-keebs
-      remote: Good-Great-Grand-Wonderful
-      revision: switch-driver
-      import: config/west.yml
+    - name: zmk-driver-paw3222
+      remote: sekigon-gonnoc
+      revision: main
+    - name: zmk-report-rate-limit
+      remote: efogdev
+      revision: main
+    - name: zmk-input-processor-xyz
+      remote: badjeff
+      revision: main
   self:
     path: config
